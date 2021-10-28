@@ -25,7 +25,6 @@ public class DairyList extends AppCompatActivity {
 
 
     //创建开始
-    //TODO 删掉insert
     @SuppressLint({"Recycle", "Range"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +32,7 @@ public class DairyList extends AppCompatActivity {
         setContentView(R.layout.activity_dairy_list);
 
         //编写数据库，将数据库实例化
-        dbHelper = new DairyDatabaseHelper(this,null,null,1);
+        dbHelper = new DairyDatabaseHelper(this, null, null, 1);
         db = dbHelper.getWritableDatabase();
 
         //Button写日记
@@ -87,7 +86,7 @@ public class DairyList extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 //移除数据库中数据
-                db.execSQL("delete from dairy where id = ?",new String[]{String.valueOf(IdData.get(position))});
+                db.execSQL("delete from dairy where id = ?", new String[]{String.valueOf(IdData.get(position))});
                 //移除ArrayList中数据
                 IdData.remove(IdData.get(position));
                 TitleData.remove(String.valueOf(TitleData.get(position)));

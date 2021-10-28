@@ -12,9 +12,10 @@ public class DairyDatabaseHelper extends SQLiteOpenHelper {
     public static final String CREATE_DAIRY = "create table dairy ("
             + "id integer primary key autoincrement,"
             + "title text,"
-            + "username text,"
             + "content text,"
+            + "image integer,"
             + "time text)";
+//    public static final String CREATE_DAIRY = "drop table dairy";
 
     private Context mContext;
 

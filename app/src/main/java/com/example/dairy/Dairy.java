@@ -38,7 +38,6 @@ public class Dairy extends AppCompatActivity {
     public static final int TAKE_PHOTO = 1;
     public static final int CHOOSE_PHOTO = 2;
 
-
     private int pageID;
     private int imageID;
     private String date;
@@ -226,6 +225,7 @@ public class Dairy extends AppCompatActivity {
         }
     }
 
+    //处理图片
     @TargetApi(19)
     private void handleImageOnKitKat(Intent data) {
         String imagePath = null;
@@ -253,6 +253,7 @@ public class Dairy extends AppCompatActivity {
 
     }
 
+    //得到图片路径
     @SuppressLint("Range")
     private String getImagePath(Uri uri, String selection) {
         String path = null;
@@ -268,6 +269,7 @@ public class Dairy extends AppCompatActivity {
         return path;
     }
 
+    //得到图片
     private void displayImage(String imagePath) {
         if (imagePath != null) {
             Bitmap bitmap = BitmapFactory.decodeFile(imagePath);

@@ -115,7 +115,7 @@ public class Dairy extends AppCompatActivity {
                     "佚名" : prefGet.getString("name", "佚名");
             user.setText(name);
 
-            //读取除了作者和图片以外的信息
+            //读取除了作者以外的信息
             Cursor cursor = db.rawQuery("select title,content,image,time from dairy where id = ?",
                     new String[]{String.valueOf(pageID)});
             while (cursor.moveToNext()) {
@@ -125,16 +125,13 @@ public class Dairy extends AppCompatActivity {
                 time.setText(cursor.getString(cursor.getColumnIndex("time")));
             }
 
-            //读取图片
-
-
             //提交修改
             update.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     //获取当前时长
                     date = calendar.get(Calendar.YEAR) + "年" +
-                            calendar.get(Calendar.MONTH) + "月" +
+                            (calendar.get(Calendar.MONTH) + 1)+ "月" +
                             calendar.get(Calendar.DATE) + "日" + " " +
                             calendar.get(Calendar.HOUR_OF_DAY) + ":" +
                             calendar.get((Calendar.MINUTE));
@@ -165,7 +162,7 @@ public class Dairy extends AppCompatActivity {
 
                     //获取当前时间
                     date = calendar.get(Calendar.YEAR) + "年" +
-                            calendar.get(Calendar.MONTH) + "月" +
+                            (calendar.get(Calendar.MONTH) + 1) + "月" +
                             calendar.get(Calendar.DATE) + "日" + " " +
                             calendar.get(Calendar.HOUR_OF_DAY) + ":" +
                             calendar.get((Calendar.MINUTE));

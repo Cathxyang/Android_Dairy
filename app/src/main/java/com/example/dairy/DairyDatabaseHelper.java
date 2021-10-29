@@ -15,7 +15,6 @@ public class DairyDatabaseHelper extends SQLiteOpenHelper {
             + "content text,"
             + "image integer,"
             + "time text)";
-//    public static final String CREATE_DAIRY = "drop table dairy";
 
     private Context mContext;
 
